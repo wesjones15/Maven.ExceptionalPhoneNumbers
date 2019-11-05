@@ -83,9 +83,18 @@ public class PhoneNumberFactoryTest {
             // : Given
             // : When
             PhoneNumber phoneNumber = PhoneNumberFactory.createRandomPhoneNumber();
-
+            if (phoneNumber != null) {
+                System.out.println(phoneNumber.toString());
+            }
             // : Then
             Assert.assertTrue(phoneNumber != null);
         }
+    }
+
+    @Test
+    public void testGenerateRandomNumber() {
+        Integer actual = PhoneNumberFactory.generateRandomNumber(100,999);
+        Assert.assertTrue(actual.toString().length() == 3);
+        Assert.assertTrue(actual <= 999);
     }
 }
